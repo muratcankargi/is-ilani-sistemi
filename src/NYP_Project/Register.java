@@ -12,7 +12,6 @@ public class Register extends JFrame {
     private JPanel wrapper;
     private JTextField txt_name;
     private JTextField txt_username;
-    private JRadioButton üyeRadioButton;
     private JPasswordField txt_password;
     private JRadioButton rbtn_sirket;
     private JButton btn_register;
@@ -25,8 +24,6 @@ public class Register extends JFrame {
     private JPanel pnl_sirket;
     private JTextField txt_tarih;
     private JLabel lbl_goz;
-    private ButtonGroup buttonGroup1;
-
     public Register() {
         add(wrapper);
         setSize(400, 600);
@@ -38,7 +35,7 @@ public class Register extends JFrame {
 
 
         btn_register.addActionListener(e -> {
-            if (txt_name.getText().equals("") || txt_username.getText().equals("") || txt_password.getText().equals("") || !(rbtn_uye.isSelected() || rbtn_sirket.isSelected())) {
+            if (txt_name.getText().equals("") || txt_username.getText().equals("") || String.valueOf(txt_password.getPassword()).equals("") || !(rbtn_uye.isSelected() || rbtn_sirket.isSelected())) {
                 JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 if (Kontrol.kullaniciKontrol(txt_username.getText())) {
@@ -48,14 +45,19 @@ public class Register extends JFrame {
                         if (txt_uye_yas.getText().equals("") || cmb_egitim.getSelectedItem().equals("") || txt_deneyim.getText().equals("")) {
                             JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
-                            Kontrol.uyeEkle(txt_name.getText(), txt_username.getText(), txt_password.getText(), rbtn_uye.getText(), Integer.parseInt(txt_uye_yas.getText()), cmb_egitim.getSelectedItem().toString(), txt_deneyim.getText());
-                            JOptionPane.showMessageDialog(null, "Kayıt Başarılı!", "Kayıt", JOptionPane.INFORMATION_MESSAGE);
+                            try {
+                                Kontrol.uyeEkle(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_uye.getText(),Integer.parseInt(txt_uye_yas.getText()), cmb_egitim.getSelectedItem().toString(), txt_deneyim.getText());
+                                JOptionPane.showMessageDialog(null, "Kayıt Başarılı!", "Kayıt", JOptionPane.INFORMATION_MESSAGE);
+                            }catch (Exception ex){
+                                JOptionPane.showMessageDialog(null,"Lütfen doğru bilgi girdiğinizden emin olunuz!","Kayıt",JOptionPane.INFORMATION_MESSAGE);
+                            }
+
                         }
                     } else {
                         if (txt_tarih.equals("")) {
                             JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
-                            Kontrol.sirketEkle(txt_name.getText(), txt_username.getText(), txt_password.getText(), rbtn_sirket.getText(), txt_tarih.getText());
+                            Kontrol.sirketEkle(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_sirket.getText(), txt_tarih.getText());
                             JOptionPane.showMessageDialog(null, "Kayıt Başarılı!", "Kayıt", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }

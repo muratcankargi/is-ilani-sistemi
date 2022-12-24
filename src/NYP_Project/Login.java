@@ -15,8 +15,6 @@ public class Login extends JFrame {
     private JButton btn_giris;
     private JButton btn_register;
     private JLabel lbl_goz;
-    private JLabel lbl_note;
-
 
     public Login() {
         add(wrapper);
@@ -29,10 +27,10 @@ public class Login extends JFrame {
 
         btn_giris.addActionListener(e -> {
             txt_username.setText(txt_username.getText().replace(" ", ""));
-            if (txt_username.getText().equals("") || txt_password.getText().equals("")) {
+            if (txt_username.getText().equals("") || String.valueOf(txt_password.getPassword()).equals("")) {
                 JOptionPane.showMessageDialog(null, "Lütfen boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                if (Kontrol.girisKontrol(txt_username.getText(), txt_password.getText())) {
+                if (Kontrol.girisKontrol(txt_username.getText(), String.valueOf(txt_password.getPassword()))) {
                     if (Kontrol.uyeTipi(txt_username.getText()).equals("Üye")) {
                         UyePanel uyePanel = new UyePanel(txt_username.getText());
                         dispose();

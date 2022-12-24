@@ -20,12 +20,10 @@ public class SirketPanel extends JFrame {
     private JButton btn_ekle;
     private JButton btn_exit;
     private JTable tbl_basvuranlar;
-    private JTextArea txt_aciklama2;
     private JTextField txt_sirket_ad;
     private JTextField txt_sirket_username;
     private JTextField txt_sirket_kurulus;
     private JPasswordField txt_sirket_sifre;
-    private JButton güncelleButton;
     private JButton btn_sirket_sil;
     private JLabel lbl_goz;
 
@@ -129,8 +127,8 @@ public class SirketPanel extends JFrame {
                 txt_sirket_sifre.setEchoChar('*');
             }
         });
-        güncelleButton.addActionListener(e -> {
-            if (txt_sirket_ad.getText().equals("") || txt_sirket_username.getText().equals("") || txt_sirket_sifre.getText().equals("")) {
+        btn_guncelle.addActionListener(e -> {
+            if (txt_sirket_ad.getText().equals("") || txt_sirket_username.getText().equals("") || String.valueOf(txt_sirket_sifre.getPassword()).equals("")) {
                 JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Fail", JOptionPane.ERROR_MESSAGE);
             } else {
                 for (Sirket s : Kontrol.sirketList) {
@@ -142,7 +140,7 @@ public class SirketPanel extends JFrame {
                         }
                         s.setName(txt_sirket_ad.getText());
                         s.setUsername(txt_sirket_username.getText());
-                        s.setPassword(txt_sirket_sifre.getText());
+                        s.setPassword(String.valueOf(txt_sirket_sifre.getPassword()));
                         JOptionPane.showMessageDialog(null, "Güncelleme başarılı.", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }

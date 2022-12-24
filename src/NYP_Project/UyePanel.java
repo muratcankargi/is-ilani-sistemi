@@ -17,7 +17,7 @@ public class UyePanel extends JFrame {
     private JButton btn_basvuru_iptal;
     private JPanel pnl_basvurulan_ilanlar;
     private JTable tbl_basvurulan_ilanlar;
-    private JButton çıkışButton;
+    private JButton btn_cikis;
     private JPanel pnl_bilgiler;
     private JTextField txt_uye_ad;
     private JTextField txt_uye_username;
@@ -30,7 +30,6 @@ public class UyePanel extends JFrame {
     private JTabbedPane tbl_bilgiler;
     private JLabel lbl_goz;
     private DefaultTableModel mdl_ilanlarim;
-    private Object[] row_ilan_list;
     static String userName;
 
     public UyePanel(String username) {
@@ -99,19 +98,19 @@ public class UyePanel extends JFrame {
                 System.out.println(exception.getMessage());
             }
         });
-        çıkışButton.addActionListener(e -> {
+        btn_cikis.addActionListener(e -> {
             Login login = new Login();
             dispose();
         });
         btn_guncelle.addActionListener(e -> {
-            if (txt_uye_ad.getText().equals("") || txt_uye_username.getText().equals("") || txt_uye_sifre.getText().equals("") || txt_uye_yas.getText().equals("") || cmb_mezuniyet.getSelectedItem().equals("") || txt_uye_deneyim.getText().equals("")) {
+            if (txt_uye_ad.getText().equals("") || txt_uye_username.getText().equals("") || String.valueOf(txt_uye_sifre.getPassword()).equals("") || txt_uye_yas.getText().equals("") || cmb_mezuniyet.getSelectedItem().equals("") || txt_uye_deneyim.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Fail", JOptionPane.ERROR_MESSAGE);
             } else {
                 for (Uye u : Kontrol.uyeList) {
                     if (Kontrol.uyeninKendisi(userName) == u) {
                         u.setName(txt_uye_ad.getText());
                         u.setUsername(txt_uye_username.getText());
-                        u.setPassword(txt_uye_sifre.getText());
+                        u.setPassword(String.valueOf(txt_uye_sifre.getPassword()));
                         u.setYas(Integer.parseInt(txt_uye_yas.getText()));
                         u.setEgitim(cmb_mezuniyet.getSelectedItem().toString());
                         u.setDeneyim(txt_uye_deneyim.getText());
