@@ -85,7 +85,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="95de4" class="javax.swing.JButton" binding="btn_guncelle">
+                  <component id="95de4" class="javax.swing.JButton" binding="btn_ilan_guncelle">
                     <constraints>
                       <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -220,14 +220,6 @@
                   <text value="Şifre"/>
                 </properties>
               </component>
-              <component id="4366d" class="javax.swing.JButton" binding="güncelleButton" default-binding="true">
-                <constraints>
-                  <grid row="8" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Güncelle"/>
-                </properties>
-              </component>
               <component id="bdc0e" class="javax.swing.JButton" binding="btn_sirket_sil">
                 <constraints>
                   <grid row="9" column="7" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
@@ -270,6 +262,14 @@
                 </constraints>
                 <properties>
                   <text value="👁"/>
+                </properties>
+              </component>
+              <component id="f827e" class="javax.swing.JButton" binding="btn_sirket_guncelle">
+                <constraints>
+                  <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Güncelle"/>
                 </properties>
               </component>
             </children>

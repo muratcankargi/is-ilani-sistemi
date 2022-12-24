@@ -15,7 +15,6 @@ public class SirketPanel extends JFrame {
     private JLabel lbl_hosgeldiniz;
     private JTextPane txt_ilan_baslik;
     private JTextPane txt_ilan_aciklama;
-    private JButton btn_guncelle;
     private JButton btn_sil;
     private JButton btn_ekle;
     private JButton btn_exit;
@@ -26,10 +25,11 @@ public class SirketPanel extends JFrame {
     private JPasswordField txt_sirket_sifre;
     private JButton btn_sirket_sil;
     private JLabel lbl_goz;
-
+    private JButton btn_ilan_guncelle;
+    private JButton btn_sirket_guncelle;
     private DefaultTableModel mdl_sirket_basvurulan_ilan;
-    private Object[] row_ilan_list;
     static String userName;
+
 
     public SirketPanel(String username) {
         userName = username;
@@ -56,7 +56,7 @@ public class SirketPanel extends JFrame {
             }
         });
 
-        btn_guncelle.addActionListener(e -> {
+        btn_ilan_guncelle.addActionListener(e -> {
             try {
                 String ilanId = tbl_ilan_list.getValueAt(tbl_ilan_list.getSelectedRow(), 0).toString();
                 if (Kontrol.ilanGuncelle(Integer.parseInt(ilanId), txt_ilan_baslik.getText(), txt_ilan_aciklama.getText())) {
@@ -127,7 +127,8 @@ public class SirketPanel extends JFrame {
                 txt_sirket_sifre.setEchoChar('*');
             }
         });
-        btn_guncelle.addActionListener(e -> {
+
+        btn_sirket_guncelle.addActionListener(e -> {
             if (txt_sirket_ad.getText().equals("") || txt_sirket_username.getText().equals("") || String.valueOf(txt_sirket_sifre.getPassword()).equals("")) {
                 JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Fail", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -150,7 +151,6 @@ public class SirketPanel extends JFrame {
 
             }
         });
-
     }
 
     public void pageRefresh() {
