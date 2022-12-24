@@ -1,0 +1,50 @@
+Elif Demir, elifdemir, 901, Üye, 28, Üniversite, Üniversite mezunuyum ve 3 yıllık deneyimim var. Şu anda müşteri ilişkileri yöneticisi olarak çalışıyorum.
+Ayşe Köse, aysekose, 123, Üye, 22, Lise, Javada Udemy dersleri sertifikası aldım
+Ali Öztürk, aliozturk, 123, Üye, 30, Üniversite, Senior Frontend Developer olarak 3 yıl Technonette çalıştım
+Zeynep Güler, zeynepguler, 123, Üye, 26, Ortaokul, 2 yıldır Junior Back-end developer olarak çalıştım
+Mehmet Emre, mehmetemre, 123, Üye, 27, Lise, İş deneyimim yok 1 yıldır javascript ile ilgileniyorum
+Emre Özdemir, emreozdemir, 456, Üye, 22, Üniversite, Üniversite mezunu ve bir yıllık iş deneyimi olan bir muhasebe uzmanıyım.
+Ayşe Kaya, aysekaya, 789, Üye, 25, Üniversite, Lisans eğitimini tamamladıktan sonra 2 yıl çalıştım ve şu anda satış müdürü olarak çalışıyorum.
+Mustafa Eren, mustafaeren, 012, Üye, 30, Üniversite, Yüksek lisans eğitimimi tamamladıktan sonra 5 yıl çalıştım ve şu anda ürün yöneticisi olarak çalışıyorum.
+Selin Öztürk, selinozturk, 345, Üye, 35, Üniversite, Doktora eğitimimi tamamladıktan sonra 8 yıl çalıştım ve şu anda araştırma müdürü olarak çalışıyorum.
+Ali Can, alican, 678, Üye, 40, Üniversite, Öğretmenlik eğitimimi tamamladıktan sonra 15 yıl çalıştım ve şu anda okul müdürü olarak çalışıyorum.
+Tesla, tesla, 123, Şirket, 01/07/2003
+Microsoft, microsoft, 456, Şirket, 04/04/1975
+Google, google, 789, Şirket, 07/09/1998
+Amazon, amazon, 246, Şirket, 05/07/1994
+Facebook, facebook, 357, Şirket, 04/02/2004
+Alibaba, alibaba, 159, Şirket, 10/04/1999
+Intel, intel, 753, Şirket, 18/07/1968
+Cisco, cisco, 963, Şirket, 10/12/1984
+Oracle, oracle, 159, Şirket, 16/06/1977
+IBM, ibm, 753, Şirket, 16/06/1911
+Samsung, samsung, 468, Şirket, 01/03/1938
+HP, hp, 852, Şirket, 01/01/1939
+Dell, dell, 963, Şirket, 04/02/1984
+Philips, philips, 741, Şirket, 15/05/1891
+LG, lg, 852, Şirket, 01/01/1947
+Google, Android Developer, Android uygulamaları geliştirmek için deneyimli bir Android Geliştirici arıyoruz.
+Microsoft, C# Programmer, C# programlama dillerine hakim, en az 2 yıl deneyimli bir programcı arıyoruz.
+Amazon, Data Scientist, Veri bilimine hakim, en az 3 yıl deneyimli bir veri bilimci arıyoruz.
+Facebook, Front-End Developer, Front-End geliştirme dillerine hakim, en az 1 yıl deneyimli bir geliştirici arıyoruz.
+IBM, Machine Learning Engineer, Makine öğrenimi algoritmalarını uygulayabilen, en az 2 yıl deneyimli bir makine öğrenimi mühendisi arıyoruz.
+Alibaba, Software Engineer, Geliştirme dillerine hakim, en az 3 yıl deneyimli bir yazılım mühendisi arıyoruz.
+Oracle, Database Administrator, Veritabanı yönetimi konusunda deneyimli, en az 2 yıl deneyimli bir veritabanı yöneticisi arıyoruz.
+Philips, UX Designer, Kullanıcı deneyimi tasarımı konusunda deneyimli, en az 1 yıl deneyimli bir UX tasarımcısı arıyoruz.
+Cisco, Network Engineer, Ağ yönetimi konusunda deneyimli, en az 3 yıl deneyimli bir ağ mühendisi arıyoruz.
+Dell, Technical Support Specialist, Teknik destek konusunda deneyimli, en az 1 yıl deneyimli bir teknik destek uzmanı arıyoruz.
+HP, Systems Administrator, Sistem yönetimi konusunda deneyimli, en az 2 yıl deneyimli bir sistem yöneticisi arıyoruz.
+Samsung, Quality Assurance Tester, Kalite güvence testleri konusunda deneyimli, en az 1 yıl deneyimli bir kalite güvence test uzmanı arıyoruz.
+Apple, Project Manager, Proje yönetimi konusunda deneyimli, en az 3 yıl deneyimli bir proje yöneticisi arıyoruz.
+LG, Technical Writer, Teknik yazım konusunda deneyimli, en az 2 yıl deneyimli bir teknik yazar arıyoruz.
+Oracle, Sales Representative, Satış temsilcisi olarak çalışacak, en az 1 yıl deneyimli bir satış temsilcisi arıyoruz.
+Dell, Product Manager, Ürün yönetimi konusunda deneyimli, en az 3 yıl deneyimli bir ürün yöneticisi arıyoruz.
+Facebook, Business Analyst, İş analizi konusunda deneyimli, en az 2 yıl deneyimli bir iş analisti arıyoruz.
+LG, Marketing Manager, Pazarlama yönetimi konusunda deneyimli, en az 1 yıl deneyimli bir pazarlama yöneticisi arıyoruz.
+Google, Customer Service Representative, Müşteri hizmetleri temsilcisi olarak çalışacak, en az 3 yıl deneyimli bir müşteri hizmetleri temsilcisi arıyoruz.
+Microsoft, Graphic Designer, Grafik tasarım konusunda deneyimli, en az 2 yıl deneyimli bir grafik tasarımcısı arıyoruz.
+IBM, Account Manager, Müşteri yönetimi konusunda deneyimli, en az 1 yıl deneyimli bir müşteri yöneticisi arıyoruz.
+Amazon, Quality Control Manager, Kalite kontrol yönetimi konusunda deneyimli, en az 3 yıl deneyimli bir kalite kontrol yöneticisi arıyoruz.
+HP, HR Manager, İnsan kaynakları yönetimi konusunda deneyimli, en az 2 yıl deneyimli bir insan kaynakları yöneticisi arıyoruz.
+Apple, Technical Trainer, Teknik eğitimler verme konusunda deneyimli, en az 1 yıl deneyimli bir teknik eğitmen arıyoruz.
+Cisco, Financial Analyst, Finansal analiz konusunda deneyimli, en az 3 yıl deneyimli bir finansal analist arıyoruz.
