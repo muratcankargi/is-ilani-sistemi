@@ -9,7 +9,7 @@ Mustafa Eren, mustafaeren, 012, Üye, 30, Üniversite, Yüksek lisans eğitimimi
 Selin Öztürk, selinozturk, 345, Üye, 35, Üniversite, Doktora eğitimimi tamamladıktan sonra 8 yıl çalıştım ve şu anda araştırma müdürü olarak çalışıyorum.
 Ali Can, alican, 678, Üye, 40, Üniversite, Öğretmenlik eğitimimi tamamladıktan sonra 15 yıl çalıştım ve şu anda okul müdürü olarak çalışıyorum.
 Tesla, tesla, 123, Şirket, 01/07/2003
-Microsoft, microsoft, 456, Şirket, 04/04/1975
+Xiaomi, xiaomi, 456, Şirket, 06/04/2010
 Google, google, 789, Şirket, 07/09/1998
 Amazon, amazon, 246, Şirket, 05/07/1994
 Facebook, facebook, 357, Şirket, 04/02/2004
@@ -40,7 +40,7 @@ LG, Technical Writer, Teknik yazım konusunda deneyimli, en az 2 yıl deneyimli 
 Oracle, Sales Representative, Satış temsilcisi olarak çalışacak, en az 1 yıl deneyimli bir satış temsilcisi arıyoruz.
 Dell, Product Manager, Ürün yönetimi konusunda deneyimli, en az 3 yıl deneyimli bir ürün yöneticisi arıyoruz.
 Facebook, Business Analyst, İş analizi konusunda deneyimli, en az 2 yıl deneyimli bir iş analisti arıyoruz.
-LG, Marketing Manager, Pazarlama yönetimi konusunda deneyimli, en az 1 yıl deneyimli bir pazarlama yöneticisi arıyoruz.
+Xiaomi, Marketing Manager, Pazarlama yönetimi konusunda deneyimli, en az 1 yıl deneyimli bir pazarlama yöneticisi arıyoruz.
 Google, Customer Service Representative, Müşteri hizmetleri temsilcisi olarak çalışacak, en az 3 yıl deneyimli bir müşteri hizmetleri temsilcisi arıyoruz.
 Microsoft, Graphic Designer, Grafik tasarım konusunda deneyimli, en az 2 yıl deneyimli bir grafik tasarımcısı arıyoruz.
 IBM, Account Manager, Müşteri yönetimi konusunda deneyimli, en az 1 yıl deneyimli bir müşteri yöneticisi arıyoruz.
