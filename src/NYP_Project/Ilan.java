@@ -1,17 +1,18 @@
 package NYP_Project;
 
 public class Ilan {
-    private int ilanId;
+    private static int nextId = 1;
+    private final int ilanId;
     private String baslik;
     private String aciklama;
     private String sirketAdi;
 
 
-    public Ilan(String sirketAdi, String baslik,String aciklama) {
-        this.ilanId=Kontrol.id++;
+    public Ilan(String sirketAdi, String baslik, String aciklama) {
+        this.ilanId = nextId++;
         this.baslik = baslik;
         this.aciklama = aciklama;
-        this.sirketAdi=sirketAdi;
+        this.sirketAdi = sirketAdi;
     }
 
     public int getIlanId() {
@@ -25,6 +26,7 @@ public class Ilan {
     public void setBaslik(String baslik) {
         this.baslik = baslik;
     }
+
     public String getAciklama() {
         return aciklama;
     }
