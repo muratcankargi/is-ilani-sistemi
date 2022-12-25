@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
 
 public class Login extends JFrame {
     private JPanel wrapper;
@@ -31,7 +30,7 @@ public class Login extends JFrame {
                 JOptionPane.showMessageDialog(null, "Lütfen boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 if (Kontrol.girisKontrol(txt_username.getText(), String.valueOf(txt_password.getPassword()))) {
-                    if (Kontrol.uyeTipi(txt_username.getText()).equals("Üye")) {
+                    if (Kontrol.userTipi(txt_username.getText()).equals("Üye")) {
                         UyePanel uyePanel = new UyePanel(txt_username.getText());
                         dispose();
                     } else {

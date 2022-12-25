@@ -46,7 +46,8 @@ public class Register extends JFrame {
                             JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
                             try {
-                                Kontrol.uyeEkle(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_uye.getText(),Integer.parseInt(txt_uye_yas.getText()), cmb_egitim.getSelectedItem().toString(), txt_deneyim.getText());
+                                Uye u= new Uye(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_uye.getText(),Integer.parseInt(txt_uye_yas.getText()), cmb_egitim.getSelectedItem().toString(), txt_deneyim.getText());
+                                Kontrol.uyeList.add(u);
                                 JOptionPane.showMessageDialog(null, "Kayıt Başarılı!", "Kayıt", JOptionPane.INFORMATION_MESSAGE);
                             }catch (Exception ex){
                                 JOptionPane.showMessageDialog(null,"Lütfen doğru bilgi girdiğinizden emin olunuz!","Kayıt",JOptionPane.INFORMATION_MESSAGE);
@@ -54,10 +55,12 @@ public class Register extends JFrame {
 
                         }
                     } else {
+
                         if (txt_tarih.equals("")) {
                             JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
-                            Kontrol.sirketEkle(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_sirket.getText(), txt_tarih.getText());
+                            Sirket sirket= new Sirket(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_sirket.getText(), txt_tarih.getText());
+                            Kontrol.sirketList.add(sirket);
                             JOptionPane.showMessageDialog(null, "Kayıt Başarılı!", "Kayıt", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
@@ -91,31 +94,31 @@ public class Register extends JFrame {
             }
         });
 
-
-
         textFocus();
     }
 
     public void textFocus() {
-        txt_tarih.addFocusListener(new FocusAdapter() {
+        rbtn_sirket.addMouseListener(new MouseAdapter() {
             @Override
-            public void focusLost(FocusEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 if (txt_tarih.getText().equals("")) {
                     txt_tarih.setText("GG/AA/YYYY");
                     txt_tarih.setForeground(new Color(153, 153, 153));
                 }
             }
         });
-        txt_tarih.addFocusListener(new FocusAdapter() {
+        txt_tarih.addMouseListener(new MouseAdapter() {
             @Override
-            public void focusGained(FocusEvent e) {
-                if (txt_tarih.getText().equals("GG/AA/YYYY")) {
+            public void mouseClicked(MouseEvent e) {
+                if(txt_tarih.getText().equals("GG/AA/YYYY")){
                     txt_tarih.setText("");
-                    txt_tarih.setForeground(new Color(153, 153, 153));
                 }
             }
         });
 
+
+
     }
+
 
 }

@@ -4,7 +4,7 @@ public abstract class User {
     private String name;
     private String username;
     private String password;
-    private String userType;
+    private final String userType;
 
     public User(String name, String username, String password, String userType) {
         this.name = name;
@@ -15,10 +15,6 @@ public abstract class User {
 
     public String getUserType() {
         return userType;
-    }
-
-    public static void ekle(String name, String username, String password, String userType) {
-
     }
 
     public String getName() {

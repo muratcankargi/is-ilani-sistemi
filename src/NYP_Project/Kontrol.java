@@ -2,19 +2,10 @@ package NYP_Project;
 
 import java.util.ArrayList;
 
-public class Kontrol implements ilanKontrol {
-    public static int id = 1;
+public class Kontrol {
     static ArrayList<Uye> uyeList = new ArrayList<>();
     static ArrayList<Sirket> sirketList = new ArrayList<>();
     static ArrayList<Ilan> ilanList = new ArrayList<>();
-
-    static void uyeEkle(String name, String username, String password, String userType, int yas, String egitim, String deneyim) {
-        uyeList.add(new Uye(name, username, password, userType, yas, egitim, deneyim));
-    }
-
-    static void sirketEkle(String name, String username, String password, String userType, String tarih) {
-        sirketList.add(new Sirket(name, username, password, userType, tarih));
-    }
 
     static boolean girisKontrol(String username, String password) {
         for (Uye u : uyeList) {
@@ -45,18 +36,13 @@ public class Kontrol implements ilanKontrol {
         return false;
     }
 
-    static String uyeTipi(String username) {
+    static String userTipi(String username) {
         for (Uye u : uyeList) {
             if (u.getUsername().equals(username)) {
                 return "Üye";
             }
         }
         return "Şirket";
-    }
-
-    static void ilanEkle(String sirketAdi, String baslik, String aciklama) {
-        ilanList.add(new Ilan(sirketAdi, baslik, aciklama));
-
     }
 
     static String adKontrol(String username) {
@@ -74,7 +60,6 @@ public class Kontrol implements ilanKontrol {
     }
 
     static boolean ilanGuncelle(int ilanId, String baslik, String aciklama) {
-
         for (Ilan i : ilanList) {
             if (i.getIlanId() == ilanId) {
                 i.setBaslik(baslik);

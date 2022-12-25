@@ -52,7 +52,7 @@ public class SirketPanel extends JFrame {
                 String select_ilan_aciklama = tbl_ilan_list.getValueAt(tbl_ilan_list.getSelectedRow(), 3).toString();
                 txt_ilan_aciklama.setText(select_ilan_aciklama);
             } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+                //System.out.println(ex.getMessage());
             }
         });
 
@@ -65,7 +65,7 @@ public class SirketPanel extends JFrame {
                     JOptionPane.showMessageDialog(null, "Güncelleme yapılamadı.", "Fail", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (Exception exception) {
-                System.out.println(exception.getMessage());
+                //System.out.println(exception.getMessage());
             }
             txt_ilan_baslik.setText("");
             txt_ilan_aciklama.setText("");
@@ -80,7 +80,7 @@ public class SirketPanel extends JFrame {
                     JOptionPane.showMessageDialog(null, "İlan silinemedi.", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (Exception exception) {
-                System.out.println(exception.getMessage());
+                //System.out.println(exception.getMessage());
             }
             txt_ilan_baslik.setText("");
             txt_ilan_aciklama.setText("");
@@ -90,9 +90,10 @@ public class SirketPanel extends JFrame {
 
         btn_ekle.addActionListener(e -> {
             try {
-                Kontrol.ilanEkle(Kontrol.adKontrol(username), txt_ilan_baslik.getText(), txt_ilan_aciklama.getText());
+                Ilan ilan= new Ilan(Kontrol.adKontrol(username), txt_ilan_baslik.getText(), txt_ilan_aciklama.getText());
+                Kontrol.ilanList.add(ilan);
             } catch (Exception exception) {
-                System.out.println(exception.getMessage());
+                //System.out.println(exception.getMessage());
             }
             txt_ilan_baslik.setText("");
             txt_ilan_aciklama.setText("");
@@ -134,8 +135,8 @@ public class SirketPanel extends JFrame {
             } else {
                 for (Sirket s : Kontrol.sirketList) {
                     if (userName.equals(s.getUsername())) {
-                        for(Ilan i:Kontrol.ilanList){
-                            if(i.getSirketAdi().equals(s.getName())){
+                        for (Ilan i : Kontrol.ilanList) {
+                            if (i.getSirketAdi().equals(s.getName())) {
                                 i.setSirketAdi(txt_sirket_ad.getText());
                             }
                         }
@@ -188,7 +189,7 @@ public class SirketPanel extends JFrame {
 
     public void basvuranlarPageRefresh() {
         mdl_sirket_basvurulan_ilan = new DefaultTableModel();
-        Object[] col_ilan_list = {"Ilan No", "Adı", "Yaşı", "Mezuniyet", "Deneyim"};
+        Object[] col_ilan_list = {"Ilan No", "İlan Başlık", "Adı", "Yaşı", "Mezuniyet", "Deneyim"};
         mdl_sirket_basvurulan_ilan.setColumnIdentifiers(col_ilan_list);
         DefaultTableModel clearModel = (DefaultTableModel) tbl_basvuranlar.getModel();
         clearModel.setRowCount(0);
@@ -198,21 +199,21 @@ public class SirketPanel extends JFrame {
                 int j = 0;
                 if (u.basvurdugumIlanlarim.get(k).getSirketAdi().equals(Kontrol.adKontrol(userName))) {
                     row[j++] = u.basvurdugumIlanlarim.get(k).getIlanId();
+                    row[j++] = u.basvurdugumIlanlarim.get(k).getBaslik();
                     row[j++] = u.getName();
                     row[j++] = u.getYas();
                     row[j++] = u.getEgitim();
                     row[j++] = u.getDeneyim();
                     mdl_sirket_basvurulan_ilan.addRow(row);
                 }
-
             }
-
-
         }
         tbl_basvuranlar.setModel(mdl_sirket_basvurulan_ilan);
         tbl_basvuranlar.getTableHeader().setReorderingAllowed(false);
         tbl_basvuranlar.getColumnModel().getColumn(0).setPreferredWidth(20);
         tbl_basvuranlar.getColumnModel().getColumn(1).setPreferredWidth(userName.length() + 100);
+        tbl_basvuranlar.getColumnModel().getColumn(3).setPreferredWidth(3);
+        tbl_basvuranlar.getColumnModel().getColumn(5).setPreferredWidth(400);
 
         tbl_basvuranlar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); //aynı anda birden fazla satır seçmeyi engeller
         tbl_basvuranlar.setDefaultEditor(Object.class, null); //seçilen sütunun bilgerini değiştirememeyi sağlar
@@ -227,14 +228,5 @@ public class SirketPanel extends JFrame {
                 txt_sirket_sifre.setText(s.getPassword());
             }
         }
-    }
-
-    public static void main(String[] args) {
-        SirketPanel sirketPanel = new SirketPanel("");
-    }
-
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

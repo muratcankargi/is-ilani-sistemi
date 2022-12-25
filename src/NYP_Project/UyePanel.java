@@ -50,7 +50,7 @@ public class UyePanel extends JFrame {
                 String select_ilan_id = tbl_ilan_list.getValueAt(tbl_ilan_list.getSelectedRow(), 0).toString();
                 txt_ilan_id.setText(select_ilan_id);
             } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+                //System.out.println(ex.getMessage());
             }
 
             try {
@@ -64,7 +64,7 @@ public class UyePanel extends JFrame {
                     btn_basvuru_iptal.setEnabled(false);
                 }
             } catch (Exception exception) {
-                System.out.println(exception.getMessage());
+                //System.out.println(exception.getMessage());
             }
 
         });
@@ -95,7 +95,7 @@ public class UyePanel extends JFrame {
                 pageRefresh();
                 basvuruPageRefresh();
             } catch (Exception exception) {
-                System.out.println(exception.getMessage());
+                //System.out.println(exception.getMessage());
             }
         });
         btn_cikis.addActionListener(e -> {
@@ -108,13 +108,18 @@ public class UyePanel extends JFrame {
             } else {
                 for (Uye u : Kontrol.uyeList) {
                     if (Kontrol.uyeninKendisi(userName) == u) {
-                        u.setName(txt_uye_ad.getText());
-                        u.setUsername(txt_uye_username.getText());
-                        u.setPassword(String.valueOf(txt_uye_sifre.getPassword()));
-                        u.setYas(Integer.parseInt(txt_uye_yas.getText()));
-                        u.setEgitim(cmb_mezuniyet.getSelectedItem().toString());
-                        u.setDeneyim(txt_uye_deneyim.getText());
-                        JOptionPane.showMessageDialog(null, "Güncelleme başarılı.", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
+                        try {
+                            u.setName(txt_uye_ad.getText());
+                            u.setUsername(txt_uye_username.getText());
+                            u.setPassword(String.valueOf(txt_uye_sifre.getPassword()));
+                            u.setYas(Integer.parseInt(txt_uye_yas.getText()));
+                            u.setEgitim(cmb_mezuniyet.getSelectedItem().toString());
+                            u.setDeneyim(txt_uye_deneyim.getText());
+                            JOptionPane.showMessageDialog(null, "Güncelleme başarılı.", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
+
+                        }catch (Exception exception){
+                            JOptionPane.showMessageDialog(null,"Lütfen doğru bilgi girdiğinizden emin olunuz!","Kayıt",JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
                 }
                 bilgilerPageRefresh();
