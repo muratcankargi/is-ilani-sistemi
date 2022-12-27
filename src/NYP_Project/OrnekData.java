@@ -41,6 +41,7 @@ public class OrnekData {
                 i++;
                 line = bufferedReader.readLine();
             }
+
             kontrol.toString();
         } catch (IOException io) {
             //System.out.println(io.getMessage());

@@ -3,8 +3,6 @@ package NYP_Project;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -56,7 +54,7 @@ public class Register extends JFrame {
                         }
                     } else {
 
-                        if (txt_tarih.equals("")) {
+                        if (txt_tarih.getText().equals("")) {
                             JOptionPane.showMessageDialog(null, "Boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
                         } else {
                             Sirket sirket= new Sirket(txt_name.getText(), txt_username.getText(), String.valueOf(txt_password.getPassword()), rbtn_sirket.getText(), txt_tarih.getText());
@@ -70,7 +68,6 @@ public class Register extends JFrame {
         rbtn_sirket.addActionListener(e -> {
             pnl_uye.setVisible(false);
             pnl_sirket.setVisible(true);
-
         });
         rbtn_uye.addActionListener(e -> {
             pnl_uye.setVisible(true);

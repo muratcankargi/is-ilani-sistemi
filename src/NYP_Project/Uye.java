@@ -58,9 +58,11 @@ public class Uye extends User {
                 }
             }
         } catch (Exception e) {
+            //System.out.println(e.getMessage());
         }
         return false;
     }
+    @Override
     public void ilanIptal(int ilanId){
         try {
             for(Ilan i: basvurdugumIlanlarim){

@@ -41,7 +41,6 @@ public class UyePanel extends JFrame {
         setResizable(false);
         setVisible(true);
         userName = username;
-        lbl_hosgeldin.setText(Kontrol.adKontrol(username) + ", hoşgeldiniz!");
         pageRefresh();
         basvuruPageRefresh();
         bilgilerPageRefresh();
@@ -117,8 +116,8 @@ public class UyePanel extends JFrame {
                             u.setDeneyim(txt_uye_deneyim.getText());
                             JOptionPane.showMessageDialog(null, "Güncelleme başarılı.", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
 
-                        }catch (Exception exception){
-                            JOptionPane.showMessageDialog(null,"Lütfen doğru bilgi girdiğinizden emin olunuz!","Kayıt",JOptionPane.INFORMATION_MESSAGE);
+                        } catch (Exception exception) {
+                            JOptionPane.showMessageDialog(null, "Lütfen doğru bilgi girdiğinizden emin olunuz!", "Kayıt", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 }
@@ -165,7 +164,7 @@ public class UyePanel extends JFrame {
             row[j++] = i.getIlanId();
             row[j++] = i.getSirketAdi();
             row[j++] = i.getBaslik();
-            row[j++] = i.getAciklama();
+            row[j] = i.getAciklama();
             mdl_ilanlarim.addRow(row);
 
         }
@@ -194,7 +193,7 @@ public class UyePanel extends JFrame {
             row[j++] = i.getIlanId();
             row[j++] = i.getSirketAdi();
             row[j++] = i.getBaslik();
-            row[j++] = i.getAciklama();
+            row[j] = i.getAciklama();
             mdl_ilanlarim.addRow(row);
 
         }
@@ -211,6 +210,8 @@ public class UyePanel extends JFrame {
     }
 
     public void bilgilerPageRefresh() {
+        lbl_hosgeldin.setText(Kontrol.adKontrol(userName) + ", hoşgeldiniz!");
+
         for (Uye u : Kontrol.uyeList) {
             if (Kontrol.uyeninKendisi(userName) == u) {
                 txt_uye_ad.setText(u.getName());
