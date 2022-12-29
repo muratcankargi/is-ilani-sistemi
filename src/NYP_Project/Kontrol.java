@@ -70,16 +70,6 @@ public class Kontrol {
         return false;
     }
 
-    static boolean ilanSil(int ilanId) {
-        for (Ilan i : ilanList) {
-            if (i.getIlanId() == ilanId) {
-                ilanList.remove(ilanId - 1);
-                return true;
-            }
-        }
-        return false;
-    }
-
     static Uye uyeninKendisi(String username) {
         for (Uye u : uyeList) {
             if (u.getUsername().equals(username)) {
@@ -88,8 +78,8 @@ public class Kontrol {
         }
         return null;
     }
-
-    static boolean kullaniciSil(String username) {
+    //overloading
+    static boolean silindiMi(String username) {
         for (Uye u : uyeList) {
             if (u.getUsername().equals(username)) {
                 uyeList.remove(u);
@@ -104,7 +94,17 @@ public class Kontrol {
         }
         return false;
     }
+    static boolean silindiMi(int ilanId) {
+        for (Ilan i : ilanList) {
+            if (i.getIlanId() == ilanId) {
+                ilanList.remove(ilanId - 1);
+                return true;
+            }
+        }
+        return false;
+    }
 
+    //overriding
     @Override
     public String toString() {
         String uye = "";
