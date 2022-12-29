@@ -3,6 +3,8 @@ package NYP_Project;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -29,6 +31,8 @@ public class UyePanel extends JFrame {
     private JButton btn_uye_sil;
     private JTabbedPane tbl_bilgiler;
     private JLabel lbl_goz;
+    private JTextField txt_basvurulan_ilan_id;
+    private JButton btn_basvuru_iptal_2;
     private DefaultTableModel mdl_ilanlarim;
     static String userName;
 
@@ -67,14 +71,22 @@ public class UyePanel extends JFrame {
             }
 
         });
+        tbl_basvurulan_ilanlar.getSelectionModel().addListSelectionListener(e ->{
+            try {
+                String select_ilan_id = tbl_basvurulan_ilanlar.getValueAt(tbl_basvurulan_ilanlar.getSelectedRow(), 0).toString();
+                txt_basvurulan_ilan_id.setText(select_ilan_id);
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        });
 
         btn_basvur.addActionListener(e -> {
             int ilanId = Integer.parseInt(txt_ilan_id.getText());
             if (Kontrol.uyeninKendisi(userName).ilanaBasvurulmusMu(ilanId)) {
-                JOptionPane.showMessageDialog(null, "Bu ilana zaten başvurdunuz.", "Fail", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Bu ilana zaten başvurdunuz.", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 Kontrol.uyeninKendisi(userName).ilanaBasvur(ilanId);
-                JOptionPane.showMessageDialog(null, "İlana başvuruldu!", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "İlana başvuruldu!", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
 
             }
             pageRefresh();
@@ -85,10 +97,10 @@ public class UyePanel extends JFrame {
                 int ilanId = Integer.parseInt(txt_ilan_id.getText());
                 if (Kontrol.uyeninKendisi(userName).ilanaBasvurulmusMu(ilanId)) {
                     Kontrol.uyeninKendisi(userName).ilanIptal(ilanId);
-                    JOptionPane.showMessageDialog(null, "Başvuru iptal edildi.", "Fail", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Başvuru iptal edildi.", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     Kontrol.uyeninKendisi(userName).ilanaBasvur(ilanId);
-                    JOptionPane.showMessageDialog(null, "İlana başvuruldu!", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "İlana başvuruldu!", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
 
                 }
                 pageRefresh();
@@ -149,6 +161,27 @@ public class UyePanel extends JFrame {
             }
         });
 
+        btn_basvuru_iptal_2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try{
+                    int ilanId=Integer.parseInt(txt_basvurulan_ilan_id.getText());
+                    if (Kontrol.uyeninKendisi(userName).ilanaBasvurulmusMu(ilanId)) {
+                        Kontrol.uyeninKendisi(userName).ilanIptal(ilanId);
+                        JOptionPane.showMessageDialog(null, "Başvuru iptal edildi.", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "İptal edilemedi!", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }catch (Exception exception){
+                    //System.out.println(exception.getMessage());
+                }
+                txt_basvurulan_ilan_id.setText("");
+                pageRefresh();
+                basvuruPageRefresh();
+            }
+        });
     }
 
     public void pageRefresh() {
@@ -166,7 +199,6 @@ public class UyePanel extends JFrame {
             row[j++] = i.getBaslik();
             row[j] = i.getAciklama();
             mdl_ilanlarim.addRow(row);
-
         }
 
         tbl_ilan_list.setModel(mdl_ilanlarim);
