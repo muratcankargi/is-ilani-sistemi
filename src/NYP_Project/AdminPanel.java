@@ -3,8 +3,6 @@ package NYP_Project;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AdminPanel extends JFrame {
     private JPanel wrapper;
@@ -13,8 +11,11 @@ public class AdminPanel extends JFrame {
     private JTable tbl_sirketler;
     private JTable tbl_ilanlar;
     private JLabel lbl_uye;
-    private JButton btn_uye_sil;
+    private JButton btn_kullanici_sil;
     private JLabel lbl_uye_yas_ortalamasi;
+    private JLabel lbl_ilan_id;
+    private JButton btn_cikis;
+    private JButton btn_ilan_sil;
 
     AdminPanel() {
         add(wrapper);
@@ -37,11 +38,28 @@ public class AdminPanel extends JFrame {
                 //System.out.println(exception.getMessage());
             }
         });
+        tbl_sirketler.getSelectionModel().addListSelectionListener(e ->{
+            try {
+                String select_ilan_id = tbl_sirketler.getValueAt(tbl_sirketler.getSelectedRow(), 1).toString();
+                lbl_uye.setText(select_ilan_id);
+            } catch (Exception exception) {
+                //System.out.println(exception.getMessage());
+            }
+        });
+        tbl_ilanlar.getSelectionModel().addListSelectionListener(e ->{
+            try {
+                String select_ilan_id = tbl_ilanlar.getValueAt(tbl_ilanlar.getSelectedRow(), 0).toString();
+                lbl_ilan_id.setText(select_ilan_id);
+            } catch (Exception exception) {
+                //System.out.println(exception.getMessage());
+            }
+        });
 
-        btn_uye_sil.addActionListener(e -> {
+
+        btn_kullanici_sil.addActionListener(e -> {
             int result = JOptionPane.showConfirmDialog(null, "Hesabı silmek üzeresiniz. Emin misiniz", "Hesap", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (result == JOptionPane.YES_OPTION&&!(lbl_uye.getText().equals("murat"))) {
-                if (Kontrol.kullaniciSil(lbl_uye.getText())) {
+                if (Kontrol.silindiMi(lbl_uye.getText())) {
                     JOptionPane.showMessageDialog(null, "Hesap silindi.", "Hesap", JOptionPane.INFORMATION_MESSAGE);
 
                 } else {
@@ -50,6 +68,27 @@ public class AdminPanel extends JFrame {
             }
             lbl_uye.setText("");
             uyelerPageRefresh();
+            sirketlerPageRefresh();
+
+        });
+        btn_cikis.addActionListener(e -> {
+            Login login= new Login();
+            dispose();
+        });
+
+        btn_ilan_sil.addActionListener(e -> {
+            try {
+                String ilanId = lbl_ilan_id.getText();
+                if (Kontrol.silindiMi(Integer.parseInt(ilanId))) {
+                    JOptionPane.showMessageDialog(null, "İlan silindi!", "İlan", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "İlan silinemedi.", "İlan", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception exception) {
+                //System.out.println(exception.getMessage());
+            }
+            lbl_ilan_id.setText("");
+            ilanlarPageRefresh();
 
         });
     }
@@ -70,7 +109,7 @@ public class AdminPanel extends JFrame {
             row[j++] = u.getPassword();
             row[j++] = u.getYas();
             row[j++]=u.getEgitim();
-            row[j++]=u.getDeneyim();
+            row[j]=u.getDeneyim();
 
             mdl_sirket_basvurulan_ilan.addRow(row);
 

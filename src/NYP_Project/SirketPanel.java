@@ -74,7 +74,7 @@ public class SirketPanel extends JFrame {
         btn_sil.addActionListener(e -> {
             try {
                 String ilanId = tbl_ilan_list.getValueAt(tbl_ilan_list.getSelectedRow(), 0).toString();
-                if (Kontrol.ilanSil(Integer.parseInt(ilanId))) {
+                if (Kontrol.silindiMi(Integer.parseInt(ilanId))) {
                     JOptionPane.showMessageDialog(null, "İlan silindi!", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "İlan silinemedi.", "Başarılı", JOptionPane.INFORMATION_MESSAGE);
@@ -108,7 +108,7 @@ public class SirketPanel extends JFrame {
         btn_sirket_sil.addActionListener(e -> {
             int result = JOptionPane.showConfirmDialog(null, "Hesabınızı silmek üzeresiniz. Emin misiniz", "Hesap", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (result == JOptionPane.YES_OPTION) {
-                if (Kontrol.kullaniciSil(userName)) {
+                if (Kontrol.silindiMi(userName)) {
                     dispose();
                     Login login = new Login();
                 } else {
