@@ -30,10 +30,15 @@ public class Login extends JFrame {
                 JOptionPane.showMessageDialog(null, "Lütfen boş alan bırakmayınız!", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 if (Kontrol.girisKontrol(txt_username.getText(), String.valueOf(txt_password.getPassword()))) {
-                    if (Kontrol.userTipi(txt_username.getText()).equals("Üye")) {
+                     if(txt_username.getText().equals("murat")){
+                        AdminPanel adminPanel= new AdminPanel();
+                        dispose();
+                    }
+                    else if (Kontrol.userTipi(txt_username.getText()).equals("Üye")) {
                         UyePanel uyePanel = new UyePanel(txt_username.getText());
                         dispose();
-                    } else {
+                    }
+                    else {
                         SirketPanel sirketPanel = new SirketPanel(txt_username.getText());
                         dispose();
                     }
@@ -62,3 +67,4 @@ public class Login extends JFrame {
         );
     }
 }
+
