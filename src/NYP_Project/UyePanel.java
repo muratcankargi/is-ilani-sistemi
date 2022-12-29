@@ -140,7 +140,7 @@ public class UyePanel extends JFrame {
         btn_uye_sil.addActionListener(e -> {
             int result = JOptionPane.showConfirmDialog(null, "Hesabınızı silmek üzeresiniz. Emin misiniz", "Hesap", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (result == JOptionPane.YES_OPTION) {
-                if (Kontrol.kullaniciSil(userName)) {
+                if (Kontrol.silindiMi(userName)) {
                     dispose();
                     Login login = new Login();
                 } else {
@@ -170,12 +170,11 @@ public class UyePanel extends JFrame {
                     if (Kontrol.uyeninKendisi(userName).ilanaBasvurulmusMu(ilanId)) {
                         Kontrol.uyeninKendisi(userName).ilanIptal(ilanId);
                         JOptionPane.showMessageDialog(null, "Başvuru iptal edildi.", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
-
                     } else {
                         JOptionPane.showMessageDialog(null, "İptal edilemedi!", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }catch (Exception exception){
-                    //System.out.println(exception.getMessage());
+                    System.out.println(exception);
                 }
                 txt_basvurulan_ilan_id.setText("");
                 pageRefresh();
