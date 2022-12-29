@@ -109,6 +109,7 @@ public class Register extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 if(txt_tarih.getText().equals("GG/AA/YYYY")){
                     txt_tarih.setText("");
+                    txt_tarih.setForeground(new Color(0));
                 }
             }
         });
