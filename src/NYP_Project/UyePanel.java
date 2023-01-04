@@ -174,7 +174,7 @@ public class UyePanel extends JFrame {
                         JOptionPane.showMessageDialog(null, "İptal edilemedi!", "Başvuru", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }catch (Exception exception){
-                    System.out.println(exception);
+                    //System.out.println(exception);
                 }
                 txt_basvurulan_ilan_id.setText("");
                 pageRefresh();
